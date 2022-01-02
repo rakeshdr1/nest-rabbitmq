@@ -44,7 +44,7 @@ export class ProductService {
 
   async likeProduct(id: string) {
     const product = await this.productsRepository.findOne(id);
-    product.likes = product.likes++;
+    product.likes = product.likes += 1;
     await this.productsRepository.save(product);
     return product;
   }

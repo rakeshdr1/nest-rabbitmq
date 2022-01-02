@@ -25,6 +25,11 @@ export class ProductController {
     return this.productService.createProduct(createProductDto);
   }
 
+  @Post('/:id/like')
+  likeProduct(@Param('id') id: string) {
+    return this.productService.likeProduct(id);
+  }
+
   @Get('/:id')
   getProduct(@Param('id') id: string) {
     return this.productService.getProduct(id);

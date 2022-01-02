@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, Post } from '@nestjs/common';
 import { EventPattern } from '@nestjs/microservices';
 import { ProductService } from './product.service';
 
@@ -9,6 +9,11 @@ export class ProductController {
   @Get()
   async all() {
     return this.productService.all();
+  }
+
+  @Post('/:id/like')
+  likeProduct(@Param('id') id: string) {
+    return this.productService.likeProduct(id);
   }
 
   @EventPattern('product_created')
