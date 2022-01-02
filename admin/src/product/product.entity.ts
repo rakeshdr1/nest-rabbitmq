@@ -2,13 +2,13 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Product {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: number;
 
   @Column()
   title: string;
 
-  @Column()
+  @Column({ default: '' })
   image: string;
 
   @Column({ default: 0 })
